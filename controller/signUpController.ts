@@ -3,11 +3,7 @@ import { Request, Response } from "express";
 import { z } from "zod";
 import { registerUser } from "../services/userService";
 
-/*
- if user is Admin set role_id =1,
- if user is customer set role_id=2 ,
- if user is staff set role_id=3 
-*/
+
   
 
 export const UserBodySchema = z.object({
@@ -27,10 +23,7 @@ export const userRegistration = async (
     const userData = UserBodySchema.parse(req.body);
     const user_id = await registerUser(userData, role_id);
 
-    res.status(201).json({
-      user_id: user_id,
-      message: "User registered successfully",
-    });
+    
   } catch (error) {
     if (error instanceof z.ZodError) {
       res.status(400).json({
@@ -42,3 +35,7 @@ export const userRegistration = async (
     }
   }
 };
+
+
+
+// i added some code 
