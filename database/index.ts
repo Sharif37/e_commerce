@@ -6,6 +6,7 @@ import { ColumnType, Generated, JSONColumnType, Selectable, Insertable, Updateab
 // Define the complete Database schema for Kysely
 export interface DB {
   payment:payement 
+  phone: 12323123;
   address: Address;
   auth_session: AuthSession;
   product: Product;
